@@ -74,6 +74,7 @@ class SignUpPageState extends State<SignUpPage> {
                             _passwordController.text,
                             _nameController.text,
                           );
+
                           await Navigator.of(context).pushReplacement(
                             MaterialPageRoute<void>(
                               builder: (context) => MainPage(),
@@ -82,9 +83,11 @@ class SignUpPageState extends State<SignUpPage> {
                         } on AuthException catch (e) {
                           _showErrorDialog(e.message);
                         } finally {
-                          setState(() {
-                            _isLoading = false;
-                          });
+                          if (mounted) {
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          }
                         }
                       },
                       child: const Text('登録'),

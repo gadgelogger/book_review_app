@@ -41,6 +41,7 @@ class SignInPageState extends State<SignInPage> {
                       decoration: const InputDecoration(
                         labelText: 'パスワード',
                       ),
+                      obscureText: true,
                     ),
                     ElevatedButton(
                       onPressed: () async {
@@ -60,9 +61,11 @@ class SignInPageState extends State<SignInPage> {
                         } on AuthException catch (e) {
                           _showErrorDialog(e.message);
                         } finally {
-                          setState(() {
-                            _isLoading = false;
-                          });
+                          if (mounted) {
+                            setState(() {
+                              _isLoading = false;
+                            });
+                          }
                         }
                       },
                       child: const Text('サインイン'),

@@ -37,10 +37,11 @@ class _SettingPageState extends State<SettingPage> {
                 leading: const Icon(Icons.exit_to_app),
                 onPressed: (BuildContext context) async {
                   await FirebaseAuth.instance.signOut();
-                  await Navigator.of(context).pushReplacement(
+                  await Navigator.of(context).pushAndRemoveUntil(
                     MaterialPageRoute<void>(
                       builder: (context) => const SignInPage(),
                     ),
+                    (_) => false,
                   );
                 },
               ),
