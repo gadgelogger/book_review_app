@@ -54,7 +54,7 @@ class SignInPageState extends State<SignInPage> {
                           );
                           await Navigator.of(context).pushReplacement(
                             MaterialPageRoute<void>(
-                              builder: (context) => const MainPage(),
+                              builder: (context) => MainPage(),
                             ),
                           );
                         } on AuthException catch (e) {

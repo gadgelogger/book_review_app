@@ -35,7 +35,7 @@ class MainApp extends StatelessWidget {
             );
           }
           if (snapshot.hasData) {
-            return const MainPage();
+            return MainPage();
           }
           return const SignInPage();
         },
