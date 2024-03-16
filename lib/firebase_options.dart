@@ -2,7 +2,7 @@
 // ignore_for_file: lines_longer_than_80_chars, avoid_classes_with_only_static_members
 import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
-    show defaultTargetPlatform, kIsWeb, TargetPlatform;
+    show TargetPlatform, defaultTargetPlatform, kIsWeb;
 
 /// Default [FirebaseOptions] for use with your Firebase apps.
 ///
@@ -15,6 +15,23 @@ import 'package:flutter/foundation.dart'
 /// );
 /// ```
 class DefaultFirebaseOptions {
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyAm1lmE-JH78R4aIzQj3oCViIElYutal8s',
+    appId: '1:150122864615:android:4684679253f16e9b016742',
+    messagingSenderId: '150122864615',
+    projectId: 'book-review-app-62c8a',
+    storageBucket: 'book-review-app-62c8a.appspot.com',
+  );
+
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyDH5Dn0UTsJ8Wa0CUKt4TfmPNalVBR-5Xc',
+    appId: '1:150122864615:ios:5f8bf87dd16edc29016742',
+    messagingSenderId: '150122864615',
+    projectId: 'book-review-app-62c8a',
+    storageBucket: 'book-review-app-62c8a.appspot.com',
+    iosBundleId: 'com.example.bookReviewApp',
+  );
+
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
       throw UnsupportedError(
@@ -48,21 +65,4 @@ class DefaultFirebaseOptions {
         );
     }
   }
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAm1lmE-JH78R4aIzQj3oCViIElYutal8s',
-    appId: '1:150122864615:android:4684679253f16e9b016742',
-    messagingSenderId: '150122864615',
-    projectId: 'book-review-app-62c8a',
-    storageBucket: 'book-review-app-62c8a.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDH5Dn0UTsJ8Wa0CUKt4TfmPNalVBR-5Xc',
-    appId: '1:150122864615:ios:5f8bf87dd16edc29016742',
-    messagingSenderId: '150122864615',
-    projectId: 'book-review-app-62c8a',
-    storageBucket: 'book-review-app-62c8a.appspot.com',
-    iosBundleId: 'com.example.bookReviewApp',
-  );
 }
