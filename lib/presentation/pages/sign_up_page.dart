@@ -72,6 +72,7 @@ class SignUpPageState extends State<SignUpPage> {
                           await AuthRepository().signUpWithEmailAndPassword(
                             _emailController.text,
                             _passwordController.text,
+                            _nameController.text,
                           );
                           await Navigator.of(context).pushReplacement(
                             MaterialPageRoute<void>(
