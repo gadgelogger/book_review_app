@@ -1,3 +1,4 @@
+import 'package:book_review_app/presentation/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -11,7 +12,14 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<void>(
+                  builder: (context) => const SettingPage(),
+                ),
+              );
+            },
           ),
         ],
       ),
