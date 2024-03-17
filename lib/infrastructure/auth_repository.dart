@@ -37,8 +37,8 @@ class AuthRepository {
         await _firestore.collection('users').doc(user.uid).set({
           'uid': user.uid,
           'name': name,
-          'imageUrl': '', // 初期状態では空文字列やプレースホルダーのURL
-          'bookCount': 0, // 初期状態での本の数は0
+          'imageUrl': '',
+          'bookCount': 0,
           'createdAt': FieldValue.serverTimestamp(),
           'updatedAt': FieldValue.serverTimestamp(),
         });
