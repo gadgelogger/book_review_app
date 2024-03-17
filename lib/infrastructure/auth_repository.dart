@@ -25,13 +25,11 @@ class AuthRepository {
     String name,
   ) async {
     try {
-      // Firebase Authでのユーザー登録
       final userCredential = await _firebaseAuth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
 
-      // Firestoreにユーザー情報を保存
       final user = userCredential.user;
       if (user != null) {
         await _firestore.collection('users').doc(user.uid).set({

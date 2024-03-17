@@ -1,3 +1,4 @@
+import 'package:book_review_app/presentation/widgets/post_book_widget.dart';
 import 'package:flutter/material.dart';
 
 class BookLibrary extends StatelessWidget {
@@ -10,8 +11,9 @@ class BookLibrary extends StatelessWidget {
         title: const Text('本棚'),
       ),
       body: const Center(
-        child: Text('本棚画面'),
+        child: Text('本を追加しよう！'),
       ),
+      floatingActionButton: const PostBook(),
     );
   }
 }
