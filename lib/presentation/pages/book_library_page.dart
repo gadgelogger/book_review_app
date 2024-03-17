@@ -2,6 +2,7 @@ import 'package:book_review_app/domein/book_providers.dart';
 import 'package:book_review_app/presentation/widgets/post_book_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:intl/intl.dart';
 
 class BookLibrary extends ConsumerWidget {
   const BookLibrary({super.key});
@@ -21,12 +22,23 @@ class BookLibrary extends ConsumerWidget {
             itemCount: books.length,
             itemBuilder: (context, index) {
               final book = books[index];
-              return ListTile(
-                leading: book.imageUrl != null
-                    ? Image.network(book.imageUrl!, fit: BoxFit.cover)
-                    : const Icon(Icons.book),
-                title: Text(book.title),
-                subtitle: Text(book.description),
+              final formattedDate =
+                  DateFormat('yyyy/MM/dd').format(book.createdAt);
+              return Card(
+                elevation: 5,
+                child: ListTile(
+                  trailing: book.imageUrl != null
+                      ? Image.network(book.imageUrl!, fit: BoxFit.cover)
+                      : const Icon(Icons.book),
+                  title: Text(book.title),
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(formattedDate),
+                      Text(book.description),
+                    ],
+                  ),
+                ),
               );
             },
           );
