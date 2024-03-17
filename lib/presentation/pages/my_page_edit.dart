@@ -1,4 +1,5 @@
 import 'package:book_review_app/domein/user_providers.dart';
+import 'package:book_review_app/infrastructure/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
@@ -9,7 +10,7 @@ class MyPageEdit extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userDataAsyncValue = ref.watch(userProvider);
+    final userDataAsyncValue = ref.watch(userStreamProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -17,9 +18,7 @@ class MyPageEdit extends ConsumerWidget {
       ),
       body: userDataAsyncValue.when(
         data: (userData) {
-          // TextEditingControllerはここで初期化することで、userDataが確実に利用可能な状態であることを保証します。
           final nameController = TextEditingController(text: userData.name);
-
           return Padding(
             padding: const EdgeInsets.all(16),
             child: Center(
@@ -31,32 +30,37 @@ class MyPageEdit extends ConsumerWidget {
                       final image =
                           await _picker.pickImage(source: ImageSource.gallery);
                       if (image != null) {
-                        // 画像をアップロードし、URLを取得してユーザーデータを更新
+                        final imageUrl = await ref
+                            .read(userRepositoryProvider)
+                            .uploadProfileImage(image);
+                        if (imageUrl != null) {
+                          await ref
+                              .read(userRepositoryProvider)
+                              .updateUser(userData.uid, imageUrl: imageUrl);
+                          // Success feedback
+                        }
                       }
                     },
                     child: CircleAvatar(
-                      radius: 60,
-                      backgroundImage: userData.imageUrl != null &&
-                              userData.imageUrl!.isNotEmpty
+                      radius: 100,
+                      backgroundImage: userData.imageUrl != null
                           ? NetworkImage(userData.imageUrl!)
                           : null,
-                      child: userData.imageUrl == null ||
-                              userData.imageUrl!.isEmpty
-                          ? const Icon(Icons.camera_alt, size: 60)
+                      child: userData.imageUrl == ''
+                          ? const Icon(Icons.person, size: 100)
                           : null,
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextField(
-                    controller: nameController,
-                    decoration: const InputDecoration(labelText: '名前'),
-                  ),
-                  const SizedBox(height: 20),
+                  TextField(controller: nameController),
                   ElevatedButton(
-                    onPressed: () {
-                      // ユーザーデータを更新
+                    onPressed: () async {
+                      await ref
+                          .read(userRepositoryProvider)
+                          .updateUser(userData.uid, name: nameController.text);
+                      Navigator.of(context).pop();
                     },
-                    child: const Text('更新'),
+                    child: const Text('名前を更新'),
                   ),
                 ],
               ),

@@ -8,7 +8,7 @@ class MyPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final userDataAsyncValue = ref.watch(userProvider);
+    final userDataAsyncValue = ref.watch(userStreamProvider);
     return userDataAsyncValue.when(
       data: (userData) => Scaffold(
         appBar: AppBar(
