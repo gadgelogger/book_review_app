@@ -36,15 +36,14 @@ class PostBook extends ConsumerWidget {
 
         await ref.read(bookRepositoryProvider).addBook(
               BookData(
-                bookId: bookId,
                 title: titleController.text,
                 description: descriptionController.text,
                 url: urlController.text,
                 createdAt: DateTime.now(),
                 updatedAt: DateTime.now(),
+                bookId: bookId,
               ),
               pickedImage,
-              bookId: bookId,
             );
 
         titleController.clear();

@@ -21,8 +21,11 @@ class BookRepository {
   final FirebaseAuth auth;
   BookRepository(this.firestore, this.storage, this.auth);
 
-  Future<void> addBook(BookData book, XFile? image,
-      {required String bookId}) async {
+// BookRepositoryクラス内のaddBookメソッドを修正
+  Future<void> addBook(
+    BookData book,
+    XFile? image,
+  ) async {
     final userId = auth.currentUser?.uid;
     if (userId == null) {
       throw Exception('ユーザーが認証されていません。');
@@ -35,19 +38,16 @@ class BookRepository {
       imageUrl = await uploadTask.ref.getDownloadURL();
     }
 
-    final bookData = {
-      'title': book.title,
-      'description': book.description,
-      'imageUrl': imageUrl ?? '',
-      'url': book.url,
-      'createdAt': Timestamp.now(),
-      'updatedAt': Timestamp.now(),
-    };
+    final bookDataMap = book.toJson();
+    bookDataMap.addAll({
+      'imageUrl': imageUrl,
+      'createdAt': FieldValue.serverTimestamp(),
+      'updatedAt': FieldValue.serverTimestamp(),
+    });
+
     await firestore
-        .collection('users')
-        .doc(userId)
-        .collection('books')
+        .collection('users/$userId/books')
         .doc(book.bookId)
-        .set(bookData);
+        .set(bookDataMap);
   }
 }

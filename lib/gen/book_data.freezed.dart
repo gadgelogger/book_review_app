@@ -25,7 +25,9 @@ mixin _$BookData {
   String get description => throw _privateConstructorUsedError;
   String? get imageUrl => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
+  @DateTimeTimestampConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @DateTimeTimestampConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,8 +47,8 @@ abstract class $BookDataCopyWith<$Res> {
       String description,
       String? imageUrl,
       String? url,
-      DateTime createdAt,
-      DateTime updatedAt});
+      @DateTimeTimestampConverter() DateTime createdAt,
+      @DateTimeTimestampConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -117,8 +119,8 @@ abstract class _$$BookDataImplCopyWith<$Res>
       String description,
       String? imageUrl,
       String? url,
-      DateTime createdAt,
-      DateTime updatedAt});
+      @DateTimeTimestampConverter() DateTime createdAt,
+      @DateTimeTimestampConverter() DateTime updatedAt});
 }
 
 /// @nodoc
@@ -182,8 +184,8 @@ class _$BookDataImpl implements _BookData {
       required this.description,
       this.imageUrl,
       this.url,
-      required this.createdAt,
-      required this.updatedAt});
+      @DateTimeTimestampConverter() required this.createdAt,
+      @DateTimeTimestampConverter() required this.updatedAt});
 
   factory _$BookDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$BookDataImplFromJson(json);
@@ -199,8 +201,10 @@ class _$BookDataImpl implements _BookData {
   @override
   final String? url;
   @override
+  @DateTimeTimestampConverter()
   final DateTime createdAt;
   @override
+  @DateTimeTimestampConverter()
   final DateTime updatedAt;
 
   @override
@@ -247,13 +251,14 @@ class _$BookDataImpl implements _BookData {
 
 abstract class _BookData implements BookData {
   const factory _BookData(
-      {required final String bookId,
-      required final String title,
-      required final String description,
-      final String? imageUrl,
-      final String? url,
-      required final DateTime createdAt,
-      required final DateTime updatedAt}) = _$BookDataImpl;
+          {required final String bookId,
+          required final String title,
+          required final String description,
+          final String? imageUrl,
+          final String? url,
+          @DateTimeTimestampConverter() required final DateTime createdAt,
+          @DateTimeTimestampConverter() required final DateTime updatedAt}) =
+      _$BookDataImpl;
 
   factory _BookData.fromJson(Map<String, dynamic> json) =
       _$BookDataImpl.fromJson;
@@ -269,8 +274,10 @@ abstract class _BookData implements BookData {
   @override
   String? get url;
   @override
+  @DateTimeTimestampConverter()
   DateTime get createdAt;
   @override
+  @DateTimeTimestampConverter()
   DateTime get updatedAt;
   @override
   @JsonKey(ignore: true)

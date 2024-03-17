@@ -1,3 +1,4 @@
+import 'package:book_review_app/exceptions/date_time_timestamp_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'book_data.freezed.dart';
@@ -11,8 +12,8 @@ class BookData with _$BookData {
     required String description,
     String? imageUrl,
     String? url,
-    required DateTime createdAt,
-    required DateTime updatedAt,
+    @DateTimeTimestampConverter() required DateTime createdAt,
+    @DateTimeTimestampConverter() required DateTime updatedAt,
   }) = _BookData;
 
   factory BookData.fromJson(Map<String, dynamic> json) =>
