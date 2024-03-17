@@ -1,5 +1,6 @@
 import 'package:book_review_app/domein/user_providers.dart';
 import 'package:book_review_app/presentation/pages/my_page_edit.dart';
+import 'package:book_review_app/presentation/pages/setting_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -13,6 +14,19 @@ class MyPage extends ConsumerWidget {
       data: (userData) => Scaffold(
         appBar: AppBar(
           title: const Text('マイページ'),
+          actions: [
+            IconButton(
+              icon: const Icon(Icons.settings),
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute<void>(
+                    builder: (context) => const SettingPage(),
+                  ),
+                );
+              },
+            ),
+          ],
         ),
         body: Center(
           child: Column(

@@ -23,8 +23,12 @@ class UserRepository {
   }) async {
     final docRef = firestore.collection('users').doc(userId);
     final updateData = <String, dynamic>{};
-    if (name != null) updateData['name'] = name;
-    if (imageUrl != null) updateData['imageUrl'] = imageUrl;
+    if (name != null) {
+      updateData['name'] = name;
+    }
+    if (imageUrl != null) {
+      updateData['imageUrl'] = imageUrl;
+    }
     await docRef.update(updateData);
   }
 
