@@ -20,6 +20,7 @@ AllBookData _$AllBookDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AllBookData {
+  String get uid => throw _privateConstructorUsedError;
   String get bookId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$AllBookData {
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeTimestampConverter()
   DateTime get updatedAt => throw _privateConstructorUsedError;
+  String? get userName => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,13 +45,15 @@ abstract class $AllBookDataCopyWith<$Res> {
       _$AllBookDataCopyWithImpl<$Res, AllBookData>;
   @useResult
   $Res call(
-      {String bookId,
+      {String uid,
+      String bookId,
       String title,
       String description,
       String? imageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
-      @DateTimeTimestampConverter() DateTime updatedAt});
+      @DateTimeTimestampConverter() DateTime updatedAt,
+      String? userName});
 }
 
 /// @nodoc
@@ -65,6 +69,7 @@ class _$AllBookDataCopyWithImpl<$Res, $Val extends AllBookData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
@@ -72,8 +77,13 @@ class _$AllBookDataCopyWithImpl<$Res, $Val extends AllBookData>
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? userName = freezed,
   }) {
     return _then(_value.copyWith(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
       bookId: null == bookId
           ? _value.bookId
           : bookId // ignore: cast_nullable_to_non_nullable
@@ -102,6 +112,10 @@ class _$AllBookDataCopyWithImpl<$Res, $Val extends AllBookData>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -115,13 +129,15 @@ abstract class _$$AllBookDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String bookId,
+      {String uid,
+      String bookId,
       String title,
       String description,
       String? imageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
-      @DateTimeTimestampConverter() DateTime updatedAt});
+      @DateTimeTimestampConverter() DateTime updatedAt,
+      String? userName});
 }
 
 /// @nodoc
@@ -135,6 +151,7 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
@@ -142,8 +159,13 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
+    Object? userName = freezed,
   }) {
     return _then(_$AllBookDataImpl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
       bookId: null == bookId
           ? _value.bookId
           : bookId // ignore: cast_nullable_to_non_nullable
@@ -172,6 +194,10 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      userName: freezed == userName
+          ? _value.userName
+          : userName // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -180,17 +206,21 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AllBookDataImpl implements _AllBookData {
   const _$AllBookDataImpl(
-      {required this.bookId,
+      {required this.uid,
+      required this.bookId,
       required this.title,
       required this.description,
       this.imageUrl,
       this.url,
       @DateTimeTimestampConverter() required this.createdAt,
-      @DateTimeTimestampConverter() required this.updatedAt});
+      @DateTimeTimestampConverter() required this.updatedAt,
+      this.userName});
 
   factory _$AllBookDataImpl.fromJson(Map<String, dynamic> json) =>
       _$$AllBookDataImplFromJson(json);
 
+  @override
+  final String uid;
   @override
   final String bookId;
   @override
@@ -207,10 +237,12 @@ class _$AllBookDataImpl implements _AllBookData {
   @override
   @DateTimeTimestampConverter()
   final DateTime updatedAt;
+  @override
+  final String? userName;
 
   @override
   String toString() {
-    return 'AllBookData(bookId: $bookId, title: $title, description: $description, imageUrl: $imageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'AllBookData(uid: $uid, bookId: $bookId, title: $title, description: $description, imageUrl: $imageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt, userName: $userName)';
   }
 
   @override
@@ -218,6 +250,7 @@ class _$AllBookDataImpl implements _AllBookData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AllBookDataImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
             (identical(other.bookId, bookId) || other.bookId == bookId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -228,13 +261,15 @@ class _$AllBookDataImpl implements _AllBookData {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt));
+                other.updatedAt == updatedAt) &&
+            (identical(other.userName, userName) ||
+                other.userName == userName));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, bookId, title, description,
-      imageUrl, url, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, uid, bookId, title, description,
+      imageUrl, url, createdAt, updatedAt, userName);
 
   @JsonKey(ignore: true)
   @override
@@ -252,18 +287,21 @@ class _$AllBookDataImpl implements _AllBookData {
 
 abstract class _AllBookData implements AllBookData {
   const factory _AllBookData(
-          {required final String bookId,
-          required final String title,
-          required final String description,
-          final String? imageUrl,
-          final String? url,
-          @DateTimeTimestampConverter() required final DateTime createdAt,
-          @DateTimeTimestampConverter() required final DateTime updatedAt}) =
-      _$AllBookDataImpl;
+      {required final String uid,
+      required final String bookId,
+      required final String title,
+      required final String description,
+      final String? imageUrl,
+      final String? url,
+      @DateTimeTimestampConverter() required final DateTime createdAt,
+      @DateTimeTimestampConverter() required final DateTime updatedAt,
+      final String? userName}) = _$AllBookDataImpl;
 
   factory _AllBookData.fromJson(Map<String, dynamic> json) =
       _$AllBookDataImpl.fromJson;
 
+  @override
+  String get uid;
   @override
   String get bookId;
   @override
@@ -280,6 +318,8 @@ abstract class _AllBookData implements AllBookData {
   @override
   @DateTimeTimestampConverter()
   DateTime get updatedAt;
+  @override
+  String? get userName;
   @override
   @JsonKey(ignore: true)
   _$$AllBookDataImplCopyWith<_$AllBookDataImpl> get copyWith =>

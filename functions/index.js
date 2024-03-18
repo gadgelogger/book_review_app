@@ -8,9 +8,6 @@ exports.copyBookToAllUsersBooks = functions.firestore
         
         const newBook = snap.data();
         const { userId } = context.params;
-
-        
-        
         return admin.firestore().collection("allUsersBooks").add({
             ...newBook,
             uid: userId, 
