@@ -1,18 +1,15 @@
+import 'package:book_review_app/domein/theme_mode_provider.dart';
 import 'package:book_review_app/presentation/pages/sign_in_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
-class SettingPage extends StatefulWidget {
+class SettingPage extends ConsumerWidget {
   const SettingPage({super.key});
 
   @override
-  State<SettingPage> createState() => _SettingPageState();
-}
-
-class _SettingPageState extends State<SettingPage> {
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('設定'),
@@ -20,12 +17,17 @@ class _SettingPageState extends State<SettingPage> {
       body: SettingsList(
         sections: [
           SettingsSection(
-            title: const Text('セクション1'),
-            tiles: [
-              SettingsTile(
+            title: const Text('テーマ'),
+            tiles: <SettingsTile>[
+              SettingsTile.navigation(
                 title: const Text('テーマ'),
                 leading: const Icon(Icons.color_lens),
-                onPressed: (BuildContext context) {},
+                trailing: Text(
+                  ref.watch(themeModeProvider).toString(),
+                ),
+                onPressed: (_) async {
+                  await ref.read(themeModeProvider.notifier).toggle();
+                },
               ),
             ],
           ),
