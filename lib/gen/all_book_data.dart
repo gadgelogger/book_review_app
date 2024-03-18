@@ -12,7 +12,7 @@ class AllBookData with _$AllBookData {
     required String bookId,
     required String title,
     required String description,
-    String? imageUrl,
+    String? bookImageUrl,
     String? url,
     @DateTimeTimestampConverter() required DateTime createdAt,
     @DateTimeTimestampConverter() required DateTime updatedAt,

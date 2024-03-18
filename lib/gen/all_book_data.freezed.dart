@@ -24,7 +24,7 @@ mixin _$AllBookData {
   String get bookId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get bookImageUrl => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   @DateTimeTimestampConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $AllBookDataCopyWith<$Res> {
       String bookId,
       String title,
       String description,
-      String? imageUrl,
+      String? bookImageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
       @DateTimeTimestampConverter() DateTime updatedAt,
@@ -73,7 +73,7 @@ class _$AllBookDataCopyWithImpl<$Res, $Val extends AllBookData>
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
-    Object? imageUrl = freezed,
+    Object? bookImageUrl = freezed,
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -96,9 +96,9 @@ class _$AllBookDataCopyWithImpl<$Res, $Val extends AllBookData>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      bookImageUrl: freezed == bookImageUrl
+          ? _value.bookImageUrl
+          : bookImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       url: freezed == url
           ? _value.url
@@ -133,7 +133,7 @@ abstract class _$$AllBookDataImplCopyWith<$Res>
       String bookId,
       String title,
       String description,
-      String? imageUrl,
+      String? bookImageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
       @DateTimeTimestampConverter() DateTime updatedAt,
@@ -155,7 +155,7 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
-    Object? imageUrl = freezed,
+    Object? bookImageUrl = freezed,
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
@@ -178,9 +178,9 @@ class __$$AllBookDataImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      bookImageUrl: freezed == bookImageUrl
+          ? _value.bookImageUrl
+          : bookImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       url: freezed == url
           ? _value.url
@@ -210,7 +210,7 @@ class _$AllBookDataImpl implements _AllBookData {
       required this.bookId,
       required this.title,
       required this.description,
-      this.imageUrl,
+      this.bookImageUrl,
       this.url,
       @DateTimeTimestampConverter() required this.createdAt,
       @DateTimeTimestampConverter() required this.updatedAt,
@@ -228,7 +228,7 @@ class _$AllBookDataImpl implements _AllBookData {
   @override
   final String description;
   @override
-  final String? imageUrl;
+  final String? bookImageUrl;
   @override
   final String? url;
   @override
@@ -242,7 +242,7 @@ class _$AllBookDataImpl implements _AllBookData {
 
   @override
   String toString() {
-    return 'AllBookData(uid: $uid, bookId: $bookId, title: $title, description: $description, imageUrl: $imageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt, userName: $userName)';
+    return 'AllBookData(uid: $uid, bookId: $bookId, title: $title, description: $description, bookImageUrl: $bookImageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt, userName: $userName)';
   }
 
   @override
@@ -255,8 +255,8 @@ class _$AllBookDataImpl implements _AllBookData {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.bookImageUrl, bookImageUrl) ||
+                other.bookImageUrl == bookImageUrl) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -269,7 +269,7 @@ class _$AllBookDataImpl implements _AllBookData {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, uid, bookId, title, description,
-      imageUrl, url, createdAt, updatedAt, userName);
+      bookImageUrl, url, createdAt, updatedAt, userName);
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +291,7 @@ abstract class _AllBookData implements AllBookData {
       required final String bookId,
       required final String title,
       required final String description,
-      final String? imageUrl,
+      final String? bookImageUrl,
       final String? url,
       @DateTimeTimestampConverter() required final DateTime createdAt,
       @DateTimeTimestampConverter() required final DateTime updatedAt,
@@ -309,7 +309,7 @@ abstract class _AllBookData implements AllBookData {
   @override
   String get description;
   @override
-  String? get imageUrl;
+  String? get bookImageUrl;
   @override
   String? get url;
   @override

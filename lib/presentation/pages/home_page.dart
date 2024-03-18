@@ -27,8 +27,8 @@ class HomePage extends ConsumerWidget {
               return Card(
                 elevation: 5,
                 child: ListTile(
-                  trailing: book.imageUrl != null
-                      ? Image.network(book.imageUrl!, fit: BoxFit.cover)
+                  trailing: book.bookImageUrl != null
+                      ? Image.network(book.bookImageUrl!, fit: BoxFit.cover)
                       : const Icon(Icons.book),
                   title: Text(book.title),
                   subtitle: Column(

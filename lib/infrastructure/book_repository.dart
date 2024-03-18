@@ -40,9 +40,9 @@ class BookRepository {
 
     final bookDataMap = book.toJson();
     bookDataMap.addAll({
-      'imageUrl': imageUrl,
-      'createdAt': FieldValue.serverTimestamp(),
-      'updatedAt': FieldValue.serverTimestamp(),
+      'bookImageUrl': imageUrl,
+      'createdAt': DateTime.now(),
+      'updatedAt': DateTime.now(),
     });
 
     await firestore
