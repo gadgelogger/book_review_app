@@ -5,15 +5,15 @@ admin.initializeApp();
 exports.copyBookToAllUsersBooks = functions.firestore
     .document("users/{userId}/books/{bookId}")
     .onCreate((snap, context) => {
-        // 新しく追加された本のデータを取得
+        
         const newBook = snap.data();
         const { userId } = context.params;
 
-        // allUsersBooksコレクションに本のデータを追加
-        // ここでbannedフィールドをfalseに設定
+        
+        
         return admin.firestore().collection("allUsersBooks").add({
             ...newBook,
-            uid: userId, // 投稿者のUIDを追加
-            banned: false, // bannedフィールドを追加
+            uid: userId, 
+            banned: false, 
         });
     });
