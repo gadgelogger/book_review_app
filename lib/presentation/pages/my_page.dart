@@ -1,4 +1,5 @@
 import 'package:book_review_app/domein/user_providers.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/my_page_edit.dart';
 import 'package:book_review_app/presentation/pages/setting_page.dart';
 import 'package:flutter/material.dart';
@@ -9,11 +10,13 @@ class MyPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final myPageScreenLabel = t.myPageScreen;
+
     final userDataAsyncValue = ref.watch(userStreamProvider);
     return userDataAsyncValue.when(
       data: (userData) => Scaffold(
         appBar: AppBar(
-          title: const Text('マイページ'),
+          title: Text(myPageScreenLabel.title),
           actions: [
             IconButton(
               icon: const Icon(Icons.settings),
@@ -45,7 +48,7 @@ class MyPage extends ConsumerWidget {
               Text(userData.name, style: const TextStyle(fontSize: 20)),
               const SizedBox(height: 20),
               Text(
-                '本の数: ${userData.bookCount}冊',
+                '${myPageScreenLabel.bookCount}: ${userData.bookCount}冊',
                 style: const TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 20),
@@ -57,9 +60,9 @@ class MyPage extends ConsumerWidget {
                     ),
                   );
                 },
-                child: const Text(
-                  '編集',
-                  style: TextStyle(fontSize: 20, color: Colors.green),
+                child: Text(
+                  myPageScreenLabel.editBunnton,
+                  style: const TextStyle(fontSize: 20, color: Colors.green),
                 ),
               ),
             ],

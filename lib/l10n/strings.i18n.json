@@ -1,0 +1,77 @@
+{
+  "loginScreen": {
+    "title": "Sign In",
+    "email": "Email Address",
+    "password": "Password",
+    "login": "Sign In",
+    "register": "Register here"
+  },
+  "signUpScreen": {
+    "title": "Register",
+    "name": "Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "register": "Register"
+  },
+  "settingScreen": {
+    "title": "Settings",
+    "themeTitle": "Color Scheme",
+    "theme": "Theme",
+    "accountTitle": "Account Related",
+    "logout": "Log Out"
+  },
+  "homeScreen": {
+    "title": "Home",
+    "text": "Let's add a book"
+  },
+  "booksScreen": {
+    "title": "Bookshelf",
+    "text": "Let's add a book"
+  },
+  "addBookPopup": {
+    "title": "Added a book",
+    "name": "Title",
+    "url": "url",
+    "description": "Description",
+    "cancel": "Cancel",
+    "add": "Add"
+  },
+  "myPageScreen": {
+    "title": "My Page",
+    "bookCount": "Number of Books",
+    "editBunnton": "Edit"
+  },
+  "myPageEditScreen": {
+    "title": "Edit Profile",
+    "save": "Save"
+  },
+  "bottomNavigation": {
+    "home": "Home",
+    "books": "Bookshelf",
+    "myPage": "My Page"
+  },
+  "error": {
+    "email": "Please enter your email address",
+    "password": "Please enter your password",
+    "confirmPassword": "Please confirm your password",
+    "passwordNotMatch": "Passwords do not match",
+    "name": "Please enter your name",
+    "emailFormat": "Email format is incorrect",
+    "passwordLength": "Password must be at least 6 characters",
+    "emailExist": "This email is already registered",
+    "loginFailed": "Failed to sign in",
+    "registerFailed": "Failed to register",
+    "logoutFailed": "Failed to log out",
+    "fetchFailed": "Failed to fetch data",
+    "updateFailed": "Failed to update data",
+    "deleteFailed": "Failed to delete data",
+    "noData": "No data available",
+    "noConnection": "Please connect to the internet",
+    "unknown": "An error occurred"
+  },
+  "locales(map)": {
+    "en": "English",
+    "ja": "Japanese"
+  }
+}

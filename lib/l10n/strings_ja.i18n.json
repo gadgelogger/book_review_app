@@ -1,0 +1,76 @@
+{
+    "loginScreen": {
+    "title": "サインイン",
+    "email": "メールアドレス",
+    "password": "パスワード",
+    "login": "サインイン",
+    "register": "新規登録はこちら"
+    },
+    "signUpScreen": {
+      "title": "新規登録",
+      "name": "名前",
+      "email": "メールアドレス",
+      "password": "パスワード",
+      "confirmPassword": "パスワード（確認）",
+      "register": "登録"    
+    },
+    "settingScreen": {
+      "title": "設定",
+      "themeTitle": "配色",
+      "theme": "テーマ",
+      "accountTitle": "アカウント関連",
+      "logout": "ログアウトする"
+    },
+    "homeScreen": {
+      "title": "ホーム",
+      "text": "本を追加しよう！"
+    },
+    "booksScreen": {
+      "title": "本棚",
+      "text": "本を追加しよう！"
+    },
+    "addBookPopup": {
+      "title": "本を追加",
+      "name": "タイトル",
+      "url": "URL",
+      "description": "説明",
+      "cancel": "キャンセル",
+      "add": "追加"
+    },
+    "myPageScreen": {
+      "title": "マイページ",
+      "bookCount": "本の数",
+      "editBunnton": "編集"
+    },
+    "myPageEditScreen": {
+      "title": "プロフィール編集",
+      "save": "保存"
+    },
+    "bottomNavigation": {
+      "home": "ホーム",
+      "books": "本棚",
+      "myPage": "マイページ"
+    },
+    "error": {
+      "email": "メールアドレスを入力してください",
+      "password": "パスワードを入力してください",
+      "confirmPassword": "パスワード（確認）を入力してください",
+      "passwordNotMatch": "パスワードが一致しません",
+      "name": "名前を入力してください",
+      "emailFormat": "メールアドレスの形式が正しくありません",
+      "passwordLength": "パスワードは6文字以上で入力してください",
+      "emailExist": "このメールアドレスは既に登録されています",
+      "loginFailed": "ログインに失敗しました",
+      "registerFailed": "登録に失敗しました",
+      "logoutFailed": "ログアウトに失敗しました",
+      "fetchFailed": "データの取得に失敗しました",
+      "updateFailed": "データの更新に失敗しました",
+      "deleteFailed": "データの削除に失敗しました",
+      "noData": "データがありません",
+      "noConnection": "インターネットに接続してください",
+      "unknown": "エラーが発生しました"},
+    "locales(map)": {
+      "en": "英語",
+      "ja": "日本語"
+    }
+  }

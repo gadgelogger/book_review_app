@@ -1,5 +1,6 @@
 // home_page.dart
 import 'package:book_review_app/domein/all_book_providers.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -10,13 +11,13 @@ class HomePage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final allBooks = ref.watch(allBooksProvider);
-
+    final homePageLabel = t.homeScreen;
     return Scaffold(
-      appBar: AppBar(title: const Text('ホーム')),
+      appBar: AppBar(title: Text(homePageLabel.title)),
       body: allBooks.when(
         data: (books) {
           if (books.isEmpty) {
-            return const Center(child: Text('本を追加しよう！'));
+            return Center(child: Text(homePageLabel.text));
           }
           return ListView.builder(
             itemCount: books.length,

@@ -1,5 +1,6 @@
 import 'package:book_review_app/exceptions/auth_exceptions.dart';
 import 'package:book_review_app/infrastructure/auth_repository.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/main_page.dart';
 import 'package:flutter/material.dart';
 
@@ -16,13 +17,15 @@ class SignUpPageState extends State<SignUpPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _passwordConfirmController =
       TextEditingController();
+  final signUpPageLabel = t.signUpScreen;
+  final errorLabel = t.error;
   bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('新規登録'),
+        title: Text(signUpPageLabel.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -34,27 +37,27 @@ class SignUpPageState extends State<SignUpPage> {
                   children: <Widget>[
                     TextField(
                       controller: _nameController,
-                      decoration: const InputDecoration(
-                        labelText: '名前',
+                      decoration: InputDecoration(
+                        labelText: signUpPageLabel.name,
                       ),
                     ),
                     TextField(
                       controller: _emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'メールアドレス',
+                      decoration: InputDecoration(
+                        labelText: signUpPageLabel.email,
                       ),
                     ),
                     TextField(
                       controller: _passwordController,
-                      decoration: const InputDecoration(
-                        labelText: 'パスワード',
+                      decoration: InputDecoration(
+                        labelText: signUpPageLabel.password,
                       ),
                       obscureText: true,
                     ),
                     TextField(
                       controller: _passwordConfirmController,
-                      decoration: const InputDecoration(
-                        labelText: 'パスワード（確認）',
+                      decoration: InputDecoration(
+                        labelText: signUpPageLabel.confirmPassword,
                       ),
                       obscureText: true,
                     ),
@@ -62,7 +65,7 @@ class SignUpPageState extends State<SignUpPage> {
                       onPressed: () async {
                         if (_passwordController.text !=
                             _passwordConfirmController.text) {
-                          _showErrorDialog('パスワードが一致しません。');
+                          _showErrorDialog(errorLabel.passwordNotMatch);
                           return;
                         }
                         setState(() {
@@ -90,7 +93,7 @@ class SignUpPageState extends State<SignUpPage> {
                           }
                         }
                       },
-                      child: const Text('登録'),
+                      child: Text(signUpPageLabel.register),
                     ),
                   ],
                 ),

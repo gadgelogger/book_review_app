@@ -1,5 +1,6 @@
 import 'package:book_review_app/domein/user_providers.dart';
 import 'package:book_review_app/infrastructure/user_repository.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
@@ -11,10 +12,10 @@ class MyPageEdit extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final userDataAsyncValue = ref.watch(userStreamProvider);
-
+    final myPageEditPageLabel = t.myPageEditScreen;
     return Scaffold(
       appBar: AppBar(
-        title: const Text('プロフィール編集'),
+        title: Text(myPageEditPageLabel.title),
       ),
       body: userDataAsyncValue.when(
         data: (userData) {
@@ -60,7 +61,7 @@ class MyPageEdit extends ConsumerWidget {
                           .updateUser(userData.uid, name: nameController.text);
                       Navigator.of(context).pop();
                     },
-                    child: const Text('名前を更新'),
+                    child: Text(myPageEditPageLabel.save),
                   ),
                 ],
               ),

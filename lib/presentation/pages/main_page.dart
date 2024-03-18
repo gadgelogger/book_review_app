@@ -1,3 +1,4 @@
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/book_library_page.dart';
 import 'package:book_review_app/presentation/pages/home_page.dart';
 import 'package:book_review_app/presentation/pages/my_page.dart';
@@ -12,6 +13,7 @@ class MainPage extends ConsumerWidget {
     const BookLibrary(),
     const MyPage(),
   ];
+  final mainPageLabel = t.bottomNavigation;
   MainPage({super.key});
 
   @override
@@ -26,18 +28,18 @@ class MainPage extends ConsumerWidget {
         onTap: (int index) {
           ref.read(baseTabViewProvider.notifier).state = ViewType.values[index];
         },
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'ホーム',
+            icon: const Icon(Icons.home),
+            label: mainPageLabel.home,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: '本棚',
+            icon: const Icon(Icons.book),
+            label: mainPageLabel.books,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.people),
-            label: 'マイページ',
+            icon: const Icon(Icons.people),
+            label: mainPageLabel.myPage,
           ),
         ],
       ),

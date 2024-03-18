@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:book_review_app/gen/book_data.dart';
 import 'package:book_review_app/infrastructure/book_repository.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -13,6 +14,7 @@ class PostBook extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final postBookPopupLabel = t.addBookPopup;
     final picker = ImagePicker();
     XFile? pickedImage;
     final titleController = TextEditingController();
@@ -61,7 +63,7 @@ class PostBook extends ConsumerWidget {
       onPressed: () => showDialog<void>(
         context: context,
         builder: (_) => AlertDialog(
-          title: const Text('本を追加', textAlign: TextAlign.center),
+          title: Text(postBookPopupLabel.title, textAlign: TextAlign.center),
           content: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -81,23 +83,20 @@ class PostBook extends ConsumerWidget {
                 const SizedBox(height: 20),
                 TextField(
                   controller: titleController,
-                  decoration: const InputDecoration(
-                    labelText: 'タイトル',
-                    hintText: '本のタイトルを入力してください',
+                  decoration: InputDecoration(
+                    labelText: postBookPopupLabel.name,
                   ),
                 ),
                 TextField(
                   controller: urlController,
-                  decoration: const InputDecoration(
-                    labelText: 'URL',
-                    hintText: '本のURLを入力してください',
+                  decoration: InputDecoration(
+                    labelText: postBookPopupLabel.url,
                   ),
                 ),
                 TextField(
                   controller: descriptionController,
-                  decoration: const InputDecoration(
-                    labelText: '説明',
-                    hintText: '本の説明を入力してください',
+                  decoration: InputDecoration(
+                    labelText: postBookPopupLabel.description,
                   ),
                 ),
               ],
@@ -106,11 +105,11 @@ class PostBook extends ConsumerWidget {
           actions: [
             TextButton(
               onPressed: () => Navigator.of(context).pop(),
-              child: const Text('キャンセル'),
+              child: Text(postBookPopupLabel.cancel),
             ),
             TextButton(
               onPressed: postBook,
-              child: const Text('追加'),
+              child: Text(postBookPopupLabel.add),
             ),
           ],
         ),

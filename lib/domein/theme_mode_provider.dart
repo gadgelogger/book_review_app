@@ -13,7 +13,6 @@ final themeModeProvider = StateNotifierProvider<ThemeModeNotifier, ThemeMode>(
 class ThemeModeNotifier extends StateNotifier<ThemeMode> {
   static const String keyThemeMode = 'theme_mode';
   final _prefs = SharedPreferencesInstance().prefs;
-
   ThemeModeNotifier() : super(ThemeMode.system) {
     state = _loadThemeMode() ?? ThemeMode.system;
   }

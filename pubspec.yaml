@@ -22,6 +22,9 @@ dependencies:
   riverpod_annotation: ^2.3.5
   settings_ui: ^2.0.2
   shared_preferences: ^2.2.2
+  slang: ^3.29.0
+  slang_flutter: ^3.29.0
+
 
 dev_dependencies:
   flutter_test:
@@ -33,6 +36,7 @@ dev_dependencies:
   pedantic_mono: any
   freezed: ^2.4.7
   json_serializable: ^6.7.1
+  slang_build_runner: ^3.29.0
 
 flutter:
   uses-material-design: true

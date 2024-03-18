@@ -1,4 +1,5 @@
 import 'package:book_review_app/domein/book_providers.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/widgets/post_book_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -10,13 +11,13 @@ class BookLibrary extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final asyncBooks = ref.watch(myBooksProvider);
-
+    final bookLibraryLabel = t.booksScreen;
     return Scaffold(
-      appBar: AppBar(title: const Text('本棚')),
+      appBar: AppBar(title: Text(bookLibraryLabel.title)),
       body: asyncBooks.when(
         data: (books) {
           if (books.isEmpty) {
-            return const Center(child: Text('本を追加しよう！'));
+            return Center(child: Text(bookLibraryLabel.text));
           }
           return ListView.builder(
             itemCount: books.length,

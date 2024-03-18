@@ -1,5 +1,6 @@
 import 'package:book_review_app/exceptions/auth_exceptions.dart';
 import 'package:book_review_app/infrastructure/auth_repository.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/main_page.dart';
 import 'package:book_review_app/presentation/pages/sign_up_page.dart';
 import 'package:flutter/material.dart';
@@ -15,12 +16,12 @@ class SignInPageState extends State<SignInPage> {
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   bool _isLoading = false;
-
+  final loginPageLabel = t.loginScreen;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('ログイン'),
+        title: Text(loginPageLabel.title),
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -32,14 +33,14 @@ class SignInPageState extends State<SignInPage> {
                   children: <Widget>[
                     TextField(
                       controller: _emailController,
-                      decoration: const InputDecoration(
-                        labelText: 'メールアドレス',
+                      decoration: InputDecoration(
+                        labelText: loginPageLabel.email,
                       ),
                     ),
                     TextField(
                       controller: _passwordController,
-                      decoration: const InputDecoration(
-                        labelText: 'パスワード',
+                      decoration: InputDecoration(
+                        labelText: loginPageLabel.password,
                       ),
                       obscureText: true,
                     ),
@@ -68,7 +69,7 @@ class SignInPageState extends State<SignInPage> {
                           }
                         }
                       },
-                      child: const Text('サインイン'),
+                      child: Text(loginPageLabel.login),
                     ),
                     TextButton(
                       onPressed: () {
@@ -80,7 +81,7 @@ class SignInPageState extends State<SignInPage> {
                           ),
                         );
                       },
-                      child: const Text('新規登録はこちら'),
+                      child: Text(loginPageLabel.register),
                     ),
                   ],
                 ),
