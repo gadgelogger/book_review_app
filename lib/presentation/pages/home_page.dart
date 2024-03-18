@@ -36,6 +36,7 @@ class HomePage extends ConsumerWidget {
                     children: [
                       Text(formattedDate),
                       Text(book.description),
+                      Text('著者: ${book.userName}'),
                     ],
                   ),
                 ),
