@@ -7,10 +7,13 @@ part 'book_data.g.dart';
 @freezed
 class BookData with _$BookData {
   const factory BookData({
+    required String uid,
+    required bool banned,
+    required String email,
     required String bookId,
     required String title,
     required String description,
-    String? imageUrl,
+    String? bookImageUrl,
     String? url,
     @DateTimeTimestampConverter() required DateTime createdAt,
     @DateTimeTimestampConverter() required DateTime updatedAt,

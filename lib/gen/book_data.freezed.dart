@@ -20,10 +20,13 @@ BookData _$BookDataFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BookData {
+  String get uid => throw _privateConstructorUsedError;
+  bool get banned => throw _privateConstructorUsedError;
+  String get email => throw _privateConstructorUsedError;
   String get bookId => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  String? get imageUrl => throw _privateConstructorUsedError;
+  String? get bookImageUrl => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
   @DateTimeTimestampConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -42,10 +45,13 @@ abstract class $BookDataCopyWith<$Res> {
       _$BookDataCopyWithImpl<$Res, BookData>;
   @useResult
   $Res call(
-      {String bookId,
+      {String uid,
+      bool banned,
+      String email,
+      String bookId,
       String title,
       String description,
-      String? imageUrl,
+      String? bookImageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
       @DateTimeTimestampConverter() DateTime updatedAt});
@@ -64,15 +70,30 @@ class _$BookDataCopyWithImpl<$Res, $Val extends BookData>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
+    Object? banned = null,
+    Object? email = null,
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
-    Object? imageUrl = freezed,
+    Object? bookImageUrl = freezed,
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_value.copyWith(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      banned: null == banned
+          ? _value.banned
+          : banned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       bookId: null == bookId
           ? _value.bookId
           : bookId // ignore: cast_nullable_to_non_nullable
@@ -85,9 +106,9 @@ class _$BookDataCopyWithImpl<$Res, $Val extends BookData>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      bookImageUrl: freezed == bookImageUrl
+          ? _value.bookImageUrl
+          : bookImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       url: freezed == url
           ? _value.url
@@ -114,10 +135,13 @@ abstract class _$$BookDataImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String bookId,
+      {String uid,
+      bool banned,
+      String email,
+      String bookId,
       String title,
       String description,
-      String? imageUrl,
+      String? bookImageUrl,
       String? url,
       @DateTimeTimestampConverter() DateTime createdAt,
       @DateTimeTimestampConverter() DateTime updatedAt});
@@ -134,15 +158,30 @@ class __$$BookDataImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? uid = null,
+    Object? banned = null,
+    Object? email = null,
     Object? bookId = null,
     Object? title = null,
     Object? description = null,
-    Object? imageUrl = freezed,
+    Object? bookImageUrl = freezed,
     Object? url = freezed,
     Object? createdAt = null,
     Object? updatedAt = null,
   }) {
     return _then(_$BookDataImpl(
+      uid: null == uid
+          ? _value.uid
+          : uid // ignore: cast_nullable_to_non_nullable
+              as String,
+      banned: null == banned
+          ? _value.banned
+          : banned // ignore: cast_nullable_to_non_nullable
+              as bool,
+      email: null == email
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
       bookId: null == bookId
           ? _value.bookId
           : bookId // ignore: cast_nullable_to_non_nullable
@@ -155,9 +194,9 @@ class __$$BookDataImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      imageUrl: freezed == imageUrl
-          ? _value.imageUrl
-          : imageUrl // ignore: cast_nullable_to_non_nullable
+      bookImageUrl: freezed == bookImageUrl
+          ? _value.bookImageUrl
+          : bookImageUrl // ignore: cast_nullable_to_non_nullable
               as String?,
       url: freezed == url
           ? _value.url
@@ -179,10 +218,13 @@ class __$$BookDataImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BookDataImpl implements _BookData {
   const _$BookDataImpl(
-      {required this.bookId,
+      {required this.uid,
+      required this.banned,
+      required this.email,
+      required this.bookId,
       required this.title,
       required this.description,
-      this.imageUrl,
+      this.bookImageUrl,
       this.url,
       @DateTimeTimestampConverter() required this.createdAt,
       @DateTimeTimestampConverter() required this.updatedAt});
@@ -191,13 +233,19 @@ class _$BookDataImpl implements _BookData {
       _$$BookDataImplFromJson(json);
 
   @override
+  final String uid;
+  @override
+  final bool banned;
+  @override
+  final String email;
+  @override
   final String bookId;
   @override
   final String title;
   @override
   final String description;
   @override
-  final String? imageUrl;
+  final String? bookImageUrl;
   @override
   final String? url;
   @override
@@ -209,7 +257,7 @@ class _$BookDataImpl implements _BookData {
 
   @override
   String toString() {
-    return 'BookData(bookId: $bookId, title: $title, description: $description, imageUrl: $imageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt)';
+    return 'BookData(uid: $uid, banned: $banned, email: $email, bookId: $bookId, title: $title, description: $description, bookImageUrl: $bookImageUrl, url: $url, createdAt: $createdAt, updatedAt: $updatedAt)';
   }
 
   @override
@@ -217,12 +265,15 @@ class _$BookDataImpl implements _BookData {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BookDataImpl &&
+            (identical(other.uid, uid) || other.uid == uid) &&
+            (identical(other.banned, banned) || other.banned == banned) &&
+            (identical(other.email, email) || other.email == email) &&
             (identical(other.bookId, bookId) || other.bookId == bookId) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.imageUrl, imageUrl) ||
-                other.imageUrl == imageUrl) &&
+            (identical(other.bookImageUrl, bookImageUrl) ||
+                other.bookImageUrl == bookImageUrl) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -232,8 +283,8 @@ class _$BookDataImpl implements _BookData {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, bookId, title, description,
-      imageUrl, url, createdAt, updatedAt);
+  int get hashCode => Object.hash(runtimeType, uid, banned, email, bookId,
+      title, description, bookImageUrl, url, createdAt, updatedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -251,10 +302,13 @@ class _$BookDataImpl implements _BookData {
 
 abstract class _BookData implements BookData {
   const factory _BookData(
-          {required final String bookId,
+          {required final String uid,
+          required final bool banned,
+          required final String email,
+          required final String bookId,
           required final String title,
           required final String description,
-          final String? imageUrl,
+          final String? bookImageUrl,
           final String? url,
           @DateTimeTimestampConverter() required final DateTime createdAt,
           @DateTimeTimestampConverter() required final DateTime updatedAt}) =
@@ -264,13 +318,19 @@ abstract class _BookData implements BookData {
       _$BookDataImpl.fromJson;
 
   @override
+  String get uid;
+  @override
+  bool get banned;
+  @override
+  String get email;
+  @override
   String get bookId;
   @override
   String get title;
   @override
   String get description;
   @override
-  String? get imageUrl;
+  String? get bookImageUrl;
   @override
   String? get url;
   @override

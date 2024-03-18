@@ -36,6 +36,9 @@ class PostBook extends ConsumerWidget {
 
         await ref.read(bookRepositoryProvider).addBook(
               BookData(
+                uid: FirebaseAuth.instance.currentUser!.uid,
+                banned: false,
+                email: FirebaseAuth.instance.currentUser!.email!,
                 title: titleController.text,
                 description: descriptionController.text,
                 url: urlController.text,

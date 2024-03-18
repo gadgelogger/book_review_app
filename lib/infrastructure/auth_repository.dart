@@ -1,6 +1,5 @@
 import 'dart:async';
 
-import 'package:book_review_app/exceptions/auth_exceptions.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -14,8 +13,8 @@ class AuthRepository {
         email: email,
         password: password,
       );
-    } on FirebaseAuthException catch (e) {
-      throw _handleFirebaseAuthException(e);
+    } on FirebaseAuthException {
+      //to-do:エラー処理を書く
     }
   }
 
@@ -35,35 +34,15 @@ class AuthRepository {
         await _firestore.collection('users').doc(user.uid).set({
           'uid': user.uid,
           'name': name,
+          'email': email,
           'imageUrl': '',
           'bookCount': 0,
-          'createdAt': FieldValue.serverTimestamp(),
-          'updatedAt': FieldValue.serverTimestamp(),
+          'createdAt': DateTime.now(),
+          'updatedAt': DateTime.now(),
         });
       }
-    } on FirebaseAuthException catch (e) {
-      throw _handleFirebaseAuthException(e);
-    }
-  }
-
-  AuthException _handleFirebaseAuthException(FirebaseAuthException e) {
-    switch (e.code) {
-      case 'weak-password':
-        return AuthException.weakPassword;
-      case 'email-already-in-use':
-        return AuthException.emailAlreadyInUse;
-      case 'invalid-email':
-        return AuthException.invalidEmail;
-      case 'operation-not-allowed':
-        return AuthException.operationNotAllowed;
-      case 'user-disabled':
-        return AuthException.userDisabled;
-      case 'user-not-found':
-        return AuthException.userNotFound;
-      case 'wrong-password':
-        return AuthException.wrongPassword;
-      default:
-        return AuthException.unknown;
+    } on FirebaseAuthException {
+      //to-do:エラー処理を書く
     }
   }
 }
