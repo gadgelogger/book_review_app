@@ -38,6 +38,8 @@ class MainApp extends ConsumerWidget {
       home: StreamBuilder<User?>(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
+          print('Auth state changed: ${snapshot.data?.email ?? "Logged out"}');
+
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Scaffold(
               body: Center(

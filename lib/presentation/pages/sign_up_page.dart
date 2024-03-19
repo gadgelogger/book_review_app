@@ -63,11 +63,21 @@ class SignUpPageState extends State<SignUpPage> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
+                        // 名前、メールアドレス、パスワードが空かチェック
+                        if (_nameController.text.isEmpty ||
+                            _emailController.text.isEmpty ||
+                            _passwordController.text.isEmpty ||
+                            _passwordConfirmController.text.isEmpty) {
+                          _showErrorDialog('すべてのフィールドを入力してください。');
+                          return;
+                        }
+                        // パスワードとパスワード確認が一致するかチェック
                         if (_passwordController.text !=
                             _passwordConfirmController.text) {
                           _showErrorDialog(errorLabel.passwordNotMatch);
                           return;
                         }
+
                         setState(() {
                           _isLoading = true;
                         });

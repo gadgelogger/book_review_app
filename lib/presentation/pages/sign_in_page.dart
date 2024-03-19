@@ -46,6 +46,12 @@ class SignInPageState extends State<SignInPage> {
                     ),
                     ElevatedButton(
                       onPressed: () async {
+                        if (_emailController.text.isEmpty ||
+                            _passwordController.text.isEmpty) {
+                          _showErrorDialog('メールアドレスとパスワードを入力してください。');
+                          return;
+                        }
+
                         setState(() {
                           _isLoading = true;
                         });

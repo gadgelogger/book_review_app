@@ -37,18 +37,19 @@ class MyPage extends ConsumerWidget {
             children: <Widget>[
               CircleAvatar(
                 radius: 100,
-                backgroundImage: userData.imageUrl != null
-                    ? NetworkImage(userData.imageUrl!)
+                backgroundImage: userData?.imageUrl != null
+                    ? NetworkImage(userData?.imageUrl ?? '')
                     : null,
-                child: userData.imageUrl == ''
+                child: userData?.imageUrl == ''
                     ? const Icon(Icons.person, size: 100)
                     : null,
               ),
               const SizedBox(height: 20),
-              Text(userData.name, style: const TextStyle(fontSize: 20)),
+              Text(userData?.name ?? 'Null',
+                  style: const TextStyle(fontSize: 20)),
               const SizedBox(height: 20),
               Text(
-                '${myPageScreenLabel.bookCount}: ${userData.bookCount}${myPageScreenLabel.count}',
+                '${myPageScreenLabel.bookCount}: ${userData?.bookCount}${myPageScreenLabel.count}',
                 style: const TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 20),

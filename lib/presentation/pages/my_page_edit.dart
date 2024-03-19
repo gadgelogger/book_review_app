@@ -19,7 +19,7 @@ class MyPageEdit extends ConsumerWidget {
       ),
       body: userDataAsyncValue.when(
         data: (userData) {
-          final nameController = TextEditingController(text: userData.name);
+          final nameController = TextEditingController(text: userData?.name);
           return Padding(
             padding: const EdgeInsets.all(16),
             child: Center(
@@ -35,19 +35,20 @@ class MyPageEdit extends ConsumerWidget {
                             .read(userRepositoryProvider)
                             .uploadProfileImage(image);
                         if (imageUrl != null) {
-                          await ref
-                              .read(userRepositoryProvider)
-                              .updateUser(userData.uid, imageUrl: imageUrl);
+                          await ref.read(userRepositoryProvider).updateUser(
+                                userData?.uid ?? '',
+                                imageUrl: imageUrl,
+                              );
                           // Success feedback
                         }
                       }
                     },
                     child: CircleAvatar(
                       radius: 100,
-                      backgroundImage: userData.imageUrl != null
-                          ? NetworkImage(userData.imageUrl!)
+                      backgroundImage: userData?.imageUrl != null
+                          ? NetworkImage(userData?.imageUrl ?? '')
                           : null,
-                      child: userData.imageUrl == ''
+                      child: userData?.imageUrl == ''
                           ? const Icon(Icons.person, size: 100)
                           : null,
                     ),
@@ -56,9 +57,10 @@ class MyPageEdit extends ConsumerWidget {
                   TextField(controller: nameController),
                   ElevatedButton(
                     onPressed: () async {
-                      await ref
-                          .read(userRepositoryProvider)
-                          .updateUser(userData.uid, name: nameController.text);
+                      await ref.read(userRepositoryProvider).updateUser(
+                            userData?.uid ?? '',
+                            name: nameController.text,
+                          );
                       Navigator.of(context).pop();
                     },
                     child: Text(myPageEditPageLabel.save),
