@@ -21,7 +21,6 @@ class BookRepository {
   final FirebaseAuth auth;
   BookRepository(this.firestore, this.storage, this.auth);
 
-// BookRepositoryクラス内のaddBookメソッドを修正
   Future<void> addBook(
     BookData book,
     XFile? image,
@@ -49,5 +48,21 @@ class BookRepository {
         .collection('users/$userId/books')
         .doc(book.bookId)
         .set(bookDataMap);
+  }
+
+  Future<void> deleteBook(String bookId) async {
+    final userId = auth.currentUser?.uid;
+    if (userId == null) {
+      throw Exception('ユーザーが認証されていません。');
+    }
+
+    try {
+      final imagePath = 'users/$userId/books/$bookId';
+      await storage.ref(imagePath).delete();
+    } catch (e) {
+      print('画像の削除中にエラーが発生しました: $e');
+    }
+
+    await firestore.collection('users/$userId/books').doc(bookId).delete();
   }
 }
