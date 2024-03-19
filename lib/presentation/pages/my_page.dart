@@ -48,7 +48,7 @@ class MyPage extends ConsumerWidget {
               Text(userData.name, style: const TextStyle(fontSize: 20)),
               const SizedBox(height: 20),
               Text(
-                '${myPageScreenLabel.bookCount}: ${userData.bookCount}冊',
+                '${myPageScreenLabel.bookCount}: ${userData.bookCount}${myPageScreenLabel.count}',
                 style: const TextStyle(fontSize: 20),
               ),
               const SizedBox(height: 20),

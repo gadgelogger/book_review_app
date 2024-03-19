@@ -40,6 +40,7 @@
     "myPageScreen": {
       "title": "マイページ",
       "bookCount": "本の数",
+      "count": "冊",
       "editBunnton": "編集"
     },
     "myPageEditScreen": {

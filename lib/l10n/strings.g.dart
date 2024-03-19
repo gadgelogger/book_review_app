@@ -4,9 +4,9 @@
 /// To regenerate, run: `dart run slang`
 ///
 /// Locales: 2
-/// Strings: 106 (53 per locale)
+/// Strings: 108 (54 per locale)
 ///
-/// Built on 2024-03-18 at 14:52 UTC
+/// Built on 2024-03-19 at 03:48 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -253,6 +253,7 @@ class _StringsMyPageScreenEn {
 	// Translations
 	String get title => 'My Page';
 	String get bookCount => 'Number of Books';
+	String get count => '';
 	String get editBunnton => 'Edit';
 }
 
@@ -434,6 +435,7 @@ class _StringsMyPageScreenJa implements _StringsMyPageScreenEn {
 	// Translations
 	@override String get title => 'マイページ';
 	@override String get bookCount => '本の数';
+	@override String get count => '冊';
 	@override String get editBunnton => '編集';
 }
 
@@ -520,6 +522,7 @@ extension on Translations {
 			case 'addBookPopup.add': return 'Add';
 			case 'myPageScreen.title': return 'My Page';
 			case 'myPageScreen.bookCount': return 'Number of Books';
+			case 'myPageScreen.count': return '';
 			case 'myPageScreen.editBunnton': return 'Edit';
 			case 'myPageEditScreen.title': return 'Edit Profile';
 			case 'myPageEditScreen.save': return 'Save';
@@ -581,6 +584,7 @@ extension on _StringsJa {
 			case 'addBookPopup.add': return '追加';
 			case 'myPageScreen.title': return 'マイページ';
 			case 'myPageScreen.bookCount': return '本の数';
+			case 'myPageScreen.count': return '冊';
 			case 'myPageScreen.editBunnton': return '編集';
 			case 'myPageEditScreen.title': return 'プロフィール編集';
 			case 'myPageEditScreen.save': return '保存';
