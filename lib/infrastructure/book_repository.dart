@@ -1,3 +1,4 @@
+//本のデータをFirestoreに保存するためのリポジトリクラス
 import 'dart:io';
 
 import 'package:book_review_app/gen/book_data.dart';

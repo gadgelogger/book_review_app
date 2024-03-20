@@ -1,3 +1,4 @@
+//ユーザー情報の表示画面
 import 'package:book_review_app/domein/user_providers.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/my_page_edit.dart';

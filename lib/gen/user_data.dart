@@ -1,3 +1,4 @@
+//ユーザーデータのモデル
 import 'package:book_review_app/exceptions/date_time_timestamp_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

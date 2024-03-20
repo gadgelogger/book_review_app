@@ -1,3 +1,4 @@
+//サインイン処理とサインアップ処理を行うファイル
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';

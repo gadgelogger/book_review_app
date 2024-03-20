@@ -1,3 +1,4 @@
+//ナビゲーションバーの表示
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/book_library_page.dart';
 import 'package:book_review_app/presentation/pages/home_page.dart';

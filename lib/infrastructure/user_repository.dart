@@ -1,4 +1,4 @@
-// infrastructure/user_repository.dart
+//ユーザー情報を取得、更新するためのリポジトリクラス
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';

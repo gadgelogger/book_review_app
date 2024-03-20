@@ -1,3 +1,4 @@
+//テーマモードの状態を管理するProvider
 // Flutter imports:
 import 'package:book_review_app/domein/share_preferences_instance.dart';
 import 'package:flutter/material.dart';

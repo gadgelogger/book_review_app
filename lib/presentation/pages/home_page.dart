@@ -1,3 +1,4 @@
+//全ユーザーの投稿を表示する画面
 import 'package:book_review_app/domein/all_book_providers.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:flutter/material.dart';

@@ -1,9 +1,10 @@
+//ユーザーデータを取得するProviderを定義
 import 'package:book_review_app/gen/user_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-final userStreamProvider = StreamProvider<UserData?>((ref) {
+final userStreamProvider = StreamProvider.autoDispose<UserData?>((ref) {
   return FirebaseAuth.instance.authStateChanges().asyncMap((user) async {
     if (user == null) {
       return null;

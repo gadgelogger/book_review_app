@@ -1,4 +1,4 @@
-// Package imports:
+//テーマカラーの設定を保存するためのクラス
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesInstance {

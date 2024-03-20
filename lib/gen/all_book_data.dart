@@ -1,4 +1,4 @@
-// book_data.dart
+//全員の投稿のモデル(けどbook_dataと同じなので統一しても良さそう)
 import 'package:book_review_app/exceptions/date_time_timestamp_converter.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 

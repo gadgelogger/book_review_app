@@ -1,3 +1,4 @@
+//サインイン画面
 import 'package:book_review_app/exceptions/auth_exceptions.dart';
 import 'package:book_review_app/infrastructure/auth_repository.dart';
 import 'package:book_review_app/l10n/strings.g.dart';

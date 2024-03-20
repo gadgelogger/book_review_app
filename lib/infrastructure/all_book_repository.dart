@@ -1,3 +1,4 @@
+//全ユーザーの本のデータを取得するリポジトリ
 import 'package:book_review_app/gen/all_book_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 

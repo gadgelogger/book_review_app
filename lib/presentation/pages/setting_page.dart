@@ -8,13 +8,13 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:settings_ui/settings_ui.dart';
 
 Future<void> _logout(BuildContext context, WidgetRef ref) async {
-  await FirebaseAuth.instance.signOut(); // FirebaseAuth でのログアウト
-  ref.invalidate(userStreamProvider); // userStreamProvider の状態をリセット
+  await FirebaseAuth.instance.signOut();
+  ref.invalidate(userStreamProvider);
   await Navigator.of(context).pushReplacement(
     MaterialPageRoute<void>(
       builder: (context) => const SignInPage(),
     ),
-  ); // サインインページへ遷移
+  );
 }
 
 class SettingPage extends ConsumerWidget {
