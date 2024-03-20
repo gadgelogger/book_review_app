@@ -62,6 +62,8 @@ class MyPageEdit extends ConsumerWidget {
                             userData?.uid ?? '',
                             name: nameController.text,
                           );
+                      ProviderScope.containerOf(context)
+                          .refresh(userStreamProvider);
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(content: Text('プロフィールが更新されました。')),
                       );

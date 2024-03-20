@@ -1,6 +1,7 @@
 import 'package:book_review_app/controller/firebase_provider.dart';
 import 'package:book_review_app/domein/share_preferences_instance.dart';
 import 'package:book_review_app/domein/theme_mode_provider.dart';
+import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/main_page.dart';
 import 'package:book_review_app/presentation/pages/sign_in_page.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -13,6 +14,7 @@ import 'firebase_options.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SharedPreferencesInstance.initialize();
+  LocaleSettings.useDeviceLocale();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
