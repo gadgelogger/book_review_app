@@ -1,5 +1,6 @@
 //ユーザー情報の表示画面
 import 'package:book_review_app/domein/user_providers.dart';
+import 'package:book_review_app/gen/assets.gen.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:book_review_app/presentation/pages/my_page_edit.dart';
 import 'package:book_review_app/presentation/pages/setting_page.dart';
@@ -74,7 +75,17 @@ class MyPage extends ConsumerWidget {
         ),
       ),
       loading: () => const CircularProgressIndicator(),
-      error: (error, _) => Text('エラー: $error'),
+      error: (error, _) => Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(
+            Assets.error.path,
+            width: 150.0,
+          ),
+          Text('エラー: $error')
+        ],
+      )),
     );
   }
 }

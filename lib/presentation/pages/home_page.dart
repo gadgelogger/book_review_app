@@ -1,5 +1,6 @@
 //全ユーザーの投稿を表示する画面
 import 'package:book_review_app/domein/all_book_providers.dart';
+import 'package:book_review_app/gen/assets.gen.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -17,7 +18,17 @@ class HomePage extends ConsumerWidget {
       body: allBooks.when(
         data: (books) {
           if (books.isEmpty) {
-            return Center(child: Text(homePageLabel.text));
+            return Center(
+                child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.asset(
+                  Assets.found.path,
+                  width: 150.0,
+                ),
+                Text(homePageLabel.text)
+              ],
+            ));
           }
           return CustomScrollView(
             slivers: [
@@ -53,7 +64,17 @@ class HomePage extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (error, stack) => Center(child: Text('エラー: $error')),
+        error: (error, stack) => Center(
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset(
+              Assets.error.path,
+              width: 150.0,
+            ),
+            Text('エラー: $error')
+          ],
+        )),
       ),
     );
   }
