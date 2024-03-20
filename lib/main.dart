@@ -1,8 +1,8 @@
+import 'package:book_review_app/controller/firebase_provider.dart';
 import 'package:book_review_app/domein/share_preferences_instance.dart';
 import 'package:book_review_app/domein/theme_mode_provider.dart';
 import 'package:book_review_app/presentation/pages/main_page.dart';
 import 'package:book_review_app/presentation/pages/sign_in_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -31,27 +31,30 @@ class MainApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authStateChangeProvider);
+
     return MaterialApp(
       theme: _buildTheme(Brightness.light),
       darkTheme: _buildTheme(Brightness.dark),
       themeMode: ref.watch(themeModeProvider),
-      home: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          print('Auth state changed: ${snapshot.data?.email ?? "Logged out"}');
-
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Scaffold(
-              body: Center(
-                child: CircularProgressIndicator(),
-              ),
-            );
-          }
-          if (snapshot.hasData) {
+      home: authState.when(
+        data: (user) {
+          if (user == null) {
+            return const SignInPage();
+          } else {
             return MainPage();
           }
-          return const SignInPage();
         },
+        loading: () => const Scaffold(
+          body: Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
+        error: (error, stackTrace) => const Scaffold(
+          body: Center(
+            child: Text('Error'),
+          ),
+        ),
       ),
     );
   }

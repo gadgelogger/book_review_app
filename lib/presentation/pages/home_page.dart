@@ -1,4 +1,3 @@
-// home_page.dart
 import 'package:book_review_app/domein/all_book_providers.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
 import 'package:flutter/material.dart';
@@ -19,30 +18,37 @@ class HomePage extends ConsumerWidget {
           if (books.isEmpty) {
             return Center(child: Text(homePageLabel.text));
           }
-          return ListView.builder(
-            itemCount: books.length,
-            itemBuilder: (context, index) {
-              final book = books[index];
-              final formattedDate =
-                  DateFormat('yyyy/MM/dd').format(book.createdAt);
-              return Card(
-                elevation: 5,
-                child: ListTile(
-                  trailing: book.bookImageUrl != null
-                      ? Image.network(book.bookImageUrl!, fit: BoxFit.cover)
-                      : const Icon(Icons.book),
-                  title: Text(book.title),
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(formattedDate),
-                      Text(book.description),
-                      Text('著者: ${book.userName}'),
-                    ],
-                  ),
+          return CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final book = books[index];
+                    final formattedDate =
+                        DateFormat('yyyy/MM/dd').format(book.createdAt);
+                    return Card(
+                      elevation: 5,
+                      child: ListTile(
+                        leading: book.bookImageUrl != null
+                            ? Image.network(book.bookImageUrl!,
+                                fit: BoxFit.cover, width: 100)
+                            : const Icon(Icons.book, size: 56),
+                        title: Text(book.title),
+                        subtitle: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(formattedDate),
+                            Text(book.description),
+                            Text('著者: ${book.userName}'),
+                          ],
+                        ),
+                      ),
+                    );
+                  },
+                  childCount: books.length,
                 ),
-              );
-            },
+              ),
+            ],
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),

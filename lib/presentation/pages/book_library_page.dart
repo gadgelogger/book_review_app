@@ -20,44 +20,51 @@ class BookLibrary extends ConsumerWidget {
           if (books.isEmpty) {
             return Center(child: Text(bookLibraryLabel.text));
           }
-          return ListView.builder(
-            itemCount: books.length,
-            itemBuilder: (context, index) {
-              final book = books[index];
-              final formattedDate =
-                  DateFormat('yyyy/MM/dd').format(book.createdAt);
-              return Dismissible(
-                key: ValueKey(book.bookId),
-                background: Container(
-                  color: Colors.red,
-                  alignment: Alignment.centerRight,
-                  padding: const EdgeInsets.only(right: 20),
-                  child: const Icon(Icons.delete, color: Colors.white),
+          return CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildBuilderDelegate(
+                  (context, index) {
+                    final book = books[index];
+                    final formattedDate =
+                        DateFormat('yyyy/MM/dd').format(book.createdAt);
+                    return Dismissible(
+                      key: ValueKey(book.bookId),
+                      background: Container(
+                        color: Colors.red,
+                        alignment: Alignment.centerRight,
+                        padding: const EdgeInsets.only(right: 20),
+                        child: const Icon(Icons.delete, color: Colors.white),
+                      ),
+                      direction: DismissDirection.endToStart,
+                      onDismissed: (direction) async {
+                        await ref
+                            .read(bookRepositoryProvider)
+                            .deleteBook(book.bookId);
+                      },
+                      child: Card(
+                        elevation: 5,
+                        child: ListTile(
+                          trailing: book.bookImageUrl != null
+                              ? Image.network(book.bookImageUrl!,
+                                  fit: BoxFit.cover, width: 100)
+                              : const Icon(Icons.book, size: 56),
+                          title: Text(book.title),
+                          subtitle: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(formattedDate),
+                              Text(book.description),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                  childCount: books.length,
                 ),
-                direction: DismissDirection.endToStart,
-                onDismissed: (direction) async {
-                  await ref
-                      .read(bookRepositoryProvider)
-                      .deleteBook(book.bookId);
-                },
-                child: Card(
-                  elevation: 5,
-                  child: ListTile(
-                    trailing: book.bookImageUrl != null
-                        ? Image.network(book.bookImageUrl!, fit: BoxFit.cover)
-                        : const Icon(Icons.book),
-                    title: Text(book.title),
-                    subtitle: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(formattedDate),
-                        Text(book.description),
-                      ],
-                    ),
-                  ),
-                ),
-              );
-            },
+              ),
+            ],
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),

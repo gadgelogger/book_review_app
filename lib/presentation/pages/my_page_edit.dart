@@ -45,7 +45,7 @@ class MyPageEdit extends ConsumerWidget {
                     },
                     child: CircleAvatar(
                       radius: 100,
-                      backgroundImage: userData?.imageUrl != null
+                      backgroundImage: userData?.imageUrl != ''
                           ? NetworkImage(userData?.imageUrl ?? '')
                           : null,
                       child: userData?.imageUrl == ''
