@@ -4,6 +4,7 @@ import 'package:book_review_app/gen/book_data.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -60,7 +61,7 @@ class BookRepository {
       final imagePath = 'users/$userId/books/$bookId';
       await storage.ref(imagePath).delete();
     } catch (e) {
-      print('画像の削除中にエラーが発生しました: $e');
+      debugPrint('画像の削除中にエラーが発生しました: $e');
     }
 
     await firestore.collection('users/$userId/books').doc(bookId).delete();

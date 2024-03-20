@@ -39,7 +39,6 @@ class MyPageEdit extends ConsumerWidget {
                                 userData?.uid ?? '',
                                 imageUrl: imageUrl,
                               );
-                          // Success feedback
                         }
                       }
                     },
@@ -61,6 +60,9 @@ class MyPageEdit extends ConsumerWidget {
                             userData?.uid ?? '',
                             name: nameController.text,
                           );
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(content: Text('プロフィールが更新されました。')),
+                      );
                       Navigator.of(context).pop();
                     },
                     child: Text(myPageEditPageLabel.save),
