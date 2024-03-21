@@ -3,6 +3,7 @@ import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 
 class AuthRepository {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
@@ -14,8 +15,8 @@ class AuthRepository {
         email: email,
         password: password,
       );
-    } on FirebaseAuthException {
-      //to-do:エラー処理を書く
+    } on FirebaseAuthException catch (e) {
+      debugPrint('FirebaseAuthException: ${e.message}');
     }
   }
 
@@ -42,8 +43,8 @@ class AuthRepository {
           'updatedAt': DateTime.now(),
         });
       }
-    } on FirebaseAuthException {
-      //to-do:エラー処理を書く
+    } on FirebaseAuthException catch (e) {
+      debugPrint('FirebaseAuthException: ${e.message}');
     }
   }
 }
