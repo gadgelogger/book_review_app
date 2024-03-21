@@ -3,20 +3,31 @@
 ## スクリーンショット
 | 全ユーザー投稿一覧(light) | 全ユーザー投稿一覧(dark) |
 |:-:|:-:|
-
+|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 18 14](https://github.com/gadgelogger/book_review_app/assets/39609331/472c4acc-9559-441f-8d42-85c83da27fcf)|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 18 22](https://github.com/gadgelogger/book_review_app/assets/39609331/376a5ca8-7f07-4ae8-afca-960b35ee207f)|
 
 | 自分の投稿一覧(light) | 自分の投稿一覧(dark) |
 |:-:|:-:|
-
+|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 19 23](https://github.com/gadgelogger/book_review_app/assets/39609331/3ab60ef1-c77c-4251-b57e-07d783ce3713)|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 19 27](https://github.com/gadgelogger/book_review_app/assets/39609331/38c59b08-6dcc-411f-862a-205d3f34e625)|
 | ログイン画面 | 登録画面 |
 |:-:|:-:|
+|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 20 41](https://github.com/gadgelogger/book_review_app/assets/39609331/437c0957-b87c-42fc-ae4c-9702c808d057)|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 20 44](https://github.com/gadgelogger/book_review_app/assets/39609331/81a7df9d-59cd-4dca-b245-422ba5881907)|
 
-
-
-| データなし | エラー |
+| アカウントページ | アカウントページ編集 |
 |:-:|:-:|
+|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 19 34](https://github.com/gadgelogger/book_review_app/assets/39609331/55923808-e4fa-4774-af55-ac3aa5380c26)|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 19 45](https://github.com/gadgelogger/book_review_app/assets/39609331/6e55f7e4-e62f-43b1-99d8-28be5617c8cd)|
+
+
+| データなし | エラー | 設定画面 |
+|:-:|:-:|:-:|
+|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 18 28](https://github.com/gadgelogger/book_review_app/assets/39609331/c0119d6e-9da3-4779-9f10-195e00b8e3ae)|![image](https://github.com/gadgelogger/book_review_app/assets/39609331/c1409a49-deb4-4533-b349-73020e8883d9)|![Simulator Screenshot - iPhone 15 Pro - 2024-03-21 at 19 19 39](https://github.com/gadgelogger/book_review_app/assets/39609331/4fea4c04-244d-4a51-ab90-1eea675e4837)|
+
 
 #### demo
+
+
+
+https://github.com/gadgelogger/book_review_app/assets/39609331/d58cb6c9-a096-4da2-ba09-370d9a5a7f54
+
 
 
 ### 動作
