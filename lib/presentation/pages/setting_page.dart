@@ -1,3 +1,4 @@
+//設定画面
 import 'package:book_review_app/domein/theme_mode_provider.dart';
 import 'package:book_review_app/domein/user_providers.dart';
 import 'package:book_review_app/l10n/strings.g.dart';
